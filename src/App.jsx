@@ -17,11 +17,15 @@ import PortfolioSection from './components/PortfolioSection';
 import CallToActionSection from './components/calltoaction';
 import HeroSection2 from './components/HeroSection2';
 
+import Header2 from './components/Header2';
+
 
 function app() {
   return (
       <div className='app'>
+       
         <HeroSection />
+        <Header2 />
         <Intro />
         <Navbar />
         <TestimonialSection />
