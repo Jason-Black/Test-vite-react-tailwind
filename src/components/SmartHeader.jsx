@@ -1,17 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import gsap from 'gsap';
-import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from '@gsap/react';
 
-// Register the GSAP plugins
-gsap.registerPlugin(ScrollTrigger, SplitText);
-
-console.log("GSAP loaded:", gsap);
-console.log("SplitText loaded:", SplitText);
+// Register the GSAP plugin
+gsap.registerPlugin(ScrollTrigger);
 
 const SmartHeader = () => {
-  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const headerRef = useRef(null);
   const logoRef = useRef(null);
@@ -25,7 +20,7 @@ const SmartHeader = () => {
     gsap.from(headerRef.current, {
       y: -100,
       opacity: 0,
-      duration: 1,
+      duration: 1.8,
       ease: 'power3.out',
     });
 
@@ -38,16 +33,13 @@ const SmartHeader = () => {
       ease: 'back.out(1.7)',
     });
 
-    // Logo text animation
-    const splitLogo = new SplitText(logoRef.current, { type: 'chars' });
-    gsap.from(splitLogo.chars, {
+    // Logo text animation (simplified without SplitText)
+    gsap.from(logoRef.current, {
       opacity: 0,
-      scale: 0,
-      y: 50,
-      rotationX: -180,
-      transformOrigin: '0% 50% -50',
-      ease: 'back',
-      stagger: 0.01,
+      scale: 0.5,
+      y: 20,
+      duration: 1,
+      ease: 'back.out(1.7)',
     });
 
     // ScrollTrigger for hiding/showing header
@@ -62,16 +54,17 @@ const SmartHeader = () => {
           // Scrolling up
           gsap.to(header, {
             y: 0,
-            duration: 0.3,
-            ease: 'power2.out',
+            duration: .8,
+            ease: 'power1.out',
             onStart: () => (header.style.position = 'fixed'),
           });
         } else {
           // Scrolling down
           gsap.to(header, {
             y: '-100%',
-            duration: 0.3,
-            ease: 'power2.in',
+            duration: 1.3,
+          
+            ease: 'power2.out',
             onComplete: () => (header.style.position = 'absolute'),
           });
         }
@@ -80,10 +73,9 @@ const SmartHeader = () => {
   }, []);
 
   return (
-    
     <header
       ref={headerRef}
-      className=" top-0 left-0 w-full bg-gray-900 text-white z-50 transition-all duration-300"
+      className="top-0 left-0 w-full bg-gray-900 text-white z-50 transition-all duration-300"
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <h1 ref={logoRef} className="text-2xl font-bold">
@@ -143,9 +135,7 @@ const SmartHeader = () => {
           </a>
         ))}
       </nav>
-     
     </header>
-
   );
 };
 

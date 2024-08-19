@@ -1,8 +1,8 @@
 
 import Play from './components/play';
 import React, { useEffect } from 'react';
-import { gsap } from 'gsap';
-import { useGSAP } from '@gsap/react';
+
+
 import Contactpage from './components/contactpage';
 import Footer from './components/footer';
 import Intro from './components/intro';
@@ -21,12 +21,19 @@ import Header2 from './components/Header2';
 
 
 
+
+
+import SmartHeader from './components/SmartHeader';
+import SmartHeader2 from './components/smartheader2';
+
+
+
 function app() {
   return (
       <div className='app'>
-   
+   <SmartHeader />
         <HeroSection />
-        <Header2 />
+        
         <Intro />
         <Navbar />
         <TestimonialSection />
