@@ -21,3 +21,13 @@ code {
 .mobile-menu.open {
   transform: translateX(0);
 }
+.dm-smart-scroller {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50; /* Ensures it stays on top of other content */
+  transform: translateY(0); /* Initial state, header in view */
+  transition: transform 0.5s ease; /* Optional, but adds smoothness */
+  transition: background-color 0.5s ease, backdrop-filter 0.5s ease;
+}

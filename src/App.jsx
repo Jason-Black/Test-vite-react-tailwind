@@ -25,13 +25,16 @@ import Header2 from './components/Header2';
 
 import SmartHeader from './components/SmartHeader';
 import SmartHeader2 from './components/smartheader2';
+import SmartHeader3 from './components/smartheader3';
+import SmartHeader4 from './components/smartheader4';
+import SmartHeader5 from './components/smartheader5';
 
 
 
 function app() {
   return (
       <div className='app'>
-   <SmartHeader />
+   <SmartHeader4 />
         <HeroSection />
         
         <Intro />
