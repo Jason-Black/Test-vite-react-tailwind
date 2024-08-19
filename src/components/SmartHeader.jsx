@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react';
-import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-// import { scrollTrigger } from gsap/ScrollTrigger;
-import { SplitText } from 'gsap/SplitText';
+import { SplitText } from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from '@gsap/react';
 
 // Register the GSAP plugins
-gsap.registerPlugin( SplitText);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 console.log("GSAP loaded:", gsap);
 console.log("SplitText loaded:", SplitText);
@@ -80,6 +80,7 @@ const SmartHeader = () => {
   }, []);
 
   return (
+    
     <header
       ref={headerRef}
       className=" top-0 left-0 w-full bg-gray-900 text-white z-50 transition-all duration-300"
@@ -142,7 +143,9 @@ const SmartHeader = () => {
           </a>
         ))}
       </nav>
+     
     </header>
+
   );
 };
 

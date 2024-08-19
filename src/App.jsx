@@ -20,10 +20,11 @@ import HeroSection2 from './components/HeroSection2';
 import Header2 from './components/Header2';
 
 
+
 function app() {
   return (
       <div className='app'>
-       
+   
         <HeroSection />
         <Header2 />
         <Intro />
